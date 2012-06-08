@@ -8,6 +8,7 @@ EMAIL_HOST = 'zmail.sixfeetup.com'
 USE_I18N = False
 TIME_ZONE = 'America/Indiana/Indianapolis'
 USE_TZ = True
+DEFAULT_FROM_EMAIL = 'info@sixfeetup.com'
 
 # Make sure South stays out of the way during testing
 #SOUTH_TESTS_MIGRATE = False
