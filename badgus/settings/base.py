@@ -3,7 +3,11 @@
 
 from funfactory.settings_base import *
 
-SITE_TITLE = 'badg.us'
+SITE_TITLE = 'Six Feet Up'
+EMAIL_HOST = 'zmail.sixfeetup.com'
+USE_I18N = False
+TIME_ZONE = 'America/Indiana/Indianapolis'
+USE_TZ = True
 
 # Make sure South stays out of the way during testing
 #SOUTH_TESTS_MIGRATE = False
@@ -50,7 +54,7 @@ ROOT_URLCONF = 'badgus.urls'
 
 # Authentication
 BROWSERID_CREATE_USER = True
-SITE_URL = 'http://localhost:8000'
+SITE_URL = 'https://badges.sixfeetup.com'
 LOGIN_URL = '/accounts/login'
 LOGIN_REDIRECT_URL = '/profiles/home'
 LOGIN_REDIRECT_URL_FAILURE = '/'
@@ -89,7 +93,7 @@ INSTALLED_APPS = [
     'taggit',
 
     'badgus.profiles',
-    
+
     'badger',
     'badger_multiplayer',
 
@@ -100,6 +104,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE_CLASSES = list(MIDDLEWARE_CLASSES) + [
+    'badgus.middleware.DisableCSRF',
     'django.contrib.messages.middleware.MessageMiddleware',
     'commonware.response.middleware.StrictTransportMiddleware',
     #'csp.middleware.CSPMiddleware',
